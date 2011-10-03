@@ -1,0 +1,7 @@
+创建数据库:
+	数据库名:blog
+	整理:utf8_unicode_ci
+导入目录下的blog.sql即可
+
+yii框架的路径：
+	/var/www/yii/framework/yiic.php
