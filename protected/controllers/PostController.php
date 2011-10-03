@@ -69,6 +69,11 @@ class PostController extends BaseController
 	 */
 	public function actionShow()
 	{
+		$readFlag = 0;
+		if(isset($_GET['readFlag']))
+		{
+			$readFlag = $_GET['readFlag'];
+		}
 		$model=$this->loadPostSlug();
 		$newComment=$this->newComment($model);
 
@@ -77,6 +82,7 @@ class PostController extends BaseController
             'model'=>$model,
             'comments'=>$model->comments,
             'newComment'=>$newComment,
+			'readFlag' => $readFlag,
 		));
 	}
 
@@ -145,7 +151,7 @@ class PostController extends BaseController
 	/**
 	 * Lists all posts.
 	 */
-	public function actionList()
+	public function actionList($readFlag = 0)
 	{
 		$criteria=new CDbCriteria;
 		$criteria->condition='status='.Post::STATUS_PUBLISHED;
@@ -174,6 +180,7 @@ class PostController extends BaseController
 		$this->render('list',array(
             'models'=>$models,
             'pages'=>$pages,
+			'readFlag' => $readFlag,
 		));
 	}
 

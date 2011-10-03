@@ -9,7 +9,7 @@
         </div>
     <?php endif; ?>
     <div class="author">
-        <?php echo Yii::t('lan','posted by'); ?> <?php echo (($model->author->username) ? $model->author->username:$model->authorName).' '.Yii::t('lan','on').' '.Yii::t('lan',date('F',$model->createTime)).date(' j, Y',$model->createTime); ?>
+        <?php echo Yii::t('lan','posted by'); ?> <?php echo (isset($model->author->username) ? $model->author->username:$model->authorName).' '.Yii::t('lan','on').' '.Yii::t('lan',date('F',$model->createTime)).date(' j, Y',$model->createTime); ?>
     </div>
     <div class="content">
         <?php echo $model->contentshort; ?>

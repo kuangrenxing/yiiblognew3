@@ -1,6 +1,11 @@
 <div class="post">
     <div class="title">
-        <?php echo CHtml::encode($model->title); ?>
+        <?php 
+        if($readFlag == 0){
+        	echo CHtml::encode($model->title);
+        }else{
+        	echo CHtml::encode($model->title2);
+        } ?>
     </div>
     <div class="author">
         <?php if(Yii::app()->user->status==User::STATUS_ADMIN || Yii::app()->user->status==User::STATUS_WRITER): ?>
@@ -11,12 +16,17 @@
         <?php endif; ?>
         <?php echo Yii::t('lan','posted by'); ?> <?php echo (($model->author->username) ? CHtml::link($model->author->username,array('user/show', 'id'=>$model->authorId)):$model->authorName).' '.Yii::t('lan','on').' '.Yii::t('lan',date('F',$model->createTime)).date(' j, Y',$model->createTime); ?>
     </div>
+    <f><?php echo $readFlag==0?'切换到:':'Switch&nbsp;Language&nbsp;to:';?></f><a href="?readFlag=<?php if($readFlag==0){echo '1';}else{echo '0';} ?>"><?php echo $readFlag==0?'中文':'English'?></a>
     <div class="content">
-        <?php if(!$model->contentbig): ?>
-            <?php echo $model->contentshort; ?>
-        <?php else: ?>
-            <?php echo $model->contentbig; ?>
-        <?php endif; ?>
+    <?php if($readFlag == 0){
+    		if(!$model->contentbig){
+    			echo $model->contentshort; 
+    			}else{
+    				echo $model->contentbig; 
+    			}
+    		}else{
+    			echo $model->content2;
+    		}?>
     </div>
     <div class="nav">
         <?php if($model->category): ?>

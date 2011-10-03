@@ -711,3 +711,129 @@ Stack trace:
 #2 /var/www/yiiblognew/index.php(11): CApplication->run()
 #3 {main} REQUEST_URI=/yiiblognew/uploads/avatar/n1gdeyn4wt.jpg
 2011/09/29 18:27:58 [warning] [application] Failed to set unsafe attribute "rememberMe" of "LoginForm".
+2011/10/02 16:06:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[42000] [1049] Unknown database 'blog'' in /var/www/yii/framework/db/CDbConnection.php:364
+Stack trace:
+#0 /var/www/yii/framework/db/CDbConnection.php(313): CDbConnection->open()
+#1 /var/www/yii/framework/db/CDbConnection.php(291): CDbConnection->setActive(true)
+#2 /var/www/yii/framework/base/CModule.php(372): CDbConnection->init()
+#3 /var/www/yii/framework/base/CApplication.php(429): CModule->getComponent('db')
+#4 /var/www/yii/framework/db/ar/CActiveRecord.php(609): CApplication->getDb()
+#5 /var/www/yii/framework/db/ar/CActiveRecord.php(2275): CActiveRecord->getDbConnection()
+#6 /var/www/yii/framework/db/ar/CActiveRecord.php(372): CActiveRecordMetaData->__construct(Object(Post))
+#7 /var/www/yiiblognew/protected/models/Post.php(40): CActiveRecord::model('Post')
+#8 /var/www/yiiblognew/protected/controllers/PostController.php(162): Post::model()
+#9 /var/www/yii/framework/web/actions/CInlineAction.php(50): PostController->actionList()
+#10 /var/www/yii/framework/web/CController.php(300): CInlineAction->runWithParams(Array)
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /var/www/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(1144): CFilter->filter(Object(CFilterChain))
+#14 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/yii/framework/web/CWebApplication.php(277): CController->run('')
+#19 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('')
+#20 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#21 /var/www/yiiblognew/index.php(11): CApplication->run()
+#22 {main} REQUEST_URI=/yiiblognew/
+2011/10/02 16:08:15 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "/var/www/yiiblognew/assets" 是无效的. 请确定它是一个可被 Web server process 写入资料的目录.' in /var/www/yii/framework/web/CAssetManager.php:112
+Stack trace:
+#0 /var/www/yii/framework/web/CAssetManager.php(97): CAssetManager->setBasePath('/var/www/yiiblo...')
+#1 /var/www/yii/framework/web/CAssetManager.php(176): CAssetManager->getBasePath()
+#2 /var/www/yii/framework/web/helpers/CHtml.php(1059): CAssetManager->publish('/var/www/yii/fr...', false)
+#3 /var/www/yii/framework/web/widgets/pagers/CLinkPager.php(193): CHtml::asset('/var/www/yii/fr...')
+#4 /var/www/yii/framework/web/widgets/pagers/CLinkPager.php(182): CLinkPager::registerCssFile(NULL)
+#5 /var/www/yii/framework/web/widgets/pagers/CLinkPager.php(97): CLinkPager->registerClientScript()
+#6 /var/www/yii/framework/web/CBaseController.php(166): CLinkPager->run()
+#7 /var/www/yiiblognew/themes/classic/views/post/list.php(12): CBaseController->widget('CLinkPager', Array)
+#8 /var/www/yii/framework/web/CBaseController.php(119): require('/var/www/yiiblo...')
+#9 /var/www/yii/framework/web/CBaseController.php(88): CBaseController->renderInternal('/var/www/yiiblo...', Array, true)
+#10 /var/www/yii/framework/web/CController.php(866): CBaseController->renderFile('/var/www/yiiblo...', Array, true)
+#11 /var/www/yii/framework/web/CController.php(779): CController->renderPartial('list', Array, true)
+#12 /var/www/yiiblognew/protected/controllers/PostController.php(177): CController->render('list', Array)
+#13 /var/www/yii/framework/web/actions/CInlineAction.php(50): PostController->actionList()
+#14 /var/www/yii/framework/web/CController.php(300): CInlineAction->runWithParams(Array)
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 /var/www/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(1144): CFilter->filter(Object(CFilterChain))
+#18 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#19 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#20 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#21 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /var/www/yii/framework/web/CWebApplication.php(277): CController->run('')
+#23 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('')
+#24 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#25 /var/www/yiiblognew/index.php(11): CApplication->run()
+#26 {main} REQUEST_URI=/yiiblognew/
+2011/10/02 16:09:32 [warning] [application] Failed to set unsafe attribute "rememberMe" of "LoginForm".
+2011/10/03 13:58:54 [warning] [application] Failed to set unsafe attribute "rememberMe" of "LoginForm".
+2011/10/03 13:59:24 [warning] [application] Failed to set unsafe attribute "title2" of "Post".
+2011/10/03 13:59:24 [warning] [application] Failed to set unsafe attribute "categoryId" of "Post".
+2011/10/03 13:59:24 [warning] [application] Failed to set unsafe attribute "content2" of "Post".
+2011/10/03 14:03:52 [warning] [application] Failed to set unsafe attribute "rememberMe" of "LoginForm".
+2011/10/03 14:05:03 [warning] [application] Failed to set unsafe attribute "title2" of "Post".
+2011/10/03 14:05:03 [warning] [application] Failed to set unsafe attribute "categoryId" of "Post".
+2011/10/03 14:05:03 [warning] [application] Failed to set unsafe attribute "content2" of "Post".
+2011/10/03 14:07:21 [warning] [application] Failed to set unsafe attribute "title2" of "Post".
+2011/10/03 14:07:21 [warning] [application] Failed to set unsafe attribute "categoryId" of "Post".
+2011/10/03 14:07:21 [warning] [application] Failed to set unsafe attribute "content2" of "Post".
+2011/10/03 14:11:01 [warning] [application] Failed to set unsafe attribute "title2" of "Post".
+2011/10/03 14:11:01 [warning] [application] Failed to set unsafe attribute "categoryId" of "Post".
+2011/10/03 14:11:01 [warning] [application] Failed to set unsafe attribute "content2" of "Post".
+2011/10/03 14:14:52 [warning] [application] Failed to set unsafe attribute "rememberMe" of "LoginForm".
+2011/10/03 14:15:17 [warning] [application] Failed to set unsafe attribute "categoryId" of "Post".
+2011/10/03 14:15:17 [error] [exception.CException] exception 'CException' with message '属性 "Post.titel2" 未被定义.' in /var/www/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(129): CComponent->__get('titel2')
+#1 /var/www/yii/framework/validators/CRequiredValidator.php(46): CActiveRecord->__get('titel2')
+#2 /var/www/yii/framework/validators/CValidator.php(192): CRequiredValidator->validateAttribute(Object(Post), 'titel2')
+#3 /var/www/yii/framework/base/CModel.php(152): CValidator->validate(Object(Post), NULL)
+#4 /var/www/yii/framework/db/ar/CActiveRecord.php(780): CModel->validate(NULL)
+#5 /var/www/yiiblognew/protected/controllers/PostController.php(95): CActiveRecord->save()
+#6 /var/www/yii/framework/web/actions/CInlineAction.php(50): PostController->actionCreate()
+#7 /var/www/yii/framework/web/CController.php(300): CInlineAction->runWithParams(Array)
+#8 /var/www/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 /var/www/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#10 /var/www/yii/framework/web/CController.php(1144): CFilter->filter(Object(CFilterChain))
+#11 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#14 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/yii/framework/web/CWebApplication.php(277): CController->run('create')
+#16 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('post/create')
+#17 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#18 /var/www/yiiblognew/index.php(11): CApplication->run()
+#19 {main} REQUEST_URI=/yiiblognew/posts/create
+2011/10/03 14:15:51 [warning] [application] Failed to set unsafe attribute "categoryId" of "Post".
+2011/10/03 14:15:57 [warning] [application] Failed to set unsafe attribute "categoryId" of "Post".
+2011/10/03 14:23:21 [error] [php] Undefined variable: readFlag (/var/www/yiiblognew/themes/classic/views/post/_post.php:14)
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(866): PostController->renderFile()
+#1 /var/www/yiiblognew/themes/classic/views/post/list.php(8): PostController->renderPartial()
+#2 /var/www/yii/framework/web/CBaseController.php(119): require()
+#3 /var/www/yii/framework/web/CBaseController.php(88): PostController->renderInternal()
+#4 /var/www/yii/framework/web/CController.php(866): PostController->renderFile()
+#5 /var/www/yii/framework/web/CController.php(779): PostController->renderPartial()
+#6 /var/www/yiiblognew/protected/controllers/PostController.php(178): PostController->render()
+#7 unknown(0): PostController->actionList()
+#8 /var/www/yii/framework/web/actions/CAction.php(104): ReflectionMethod->invokeArgs()
+#9 /var/www/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#10 /var/www/yii/framework/web/CController.php(300): CInlineAction->runWithParams()
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(134): PostController->runAction()
+#12 /var/www/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(1144): CAccessControlFilter->filter()
+#14 /var/www/yii/framework/web/filters/CInlineFilter.php(59): PostController->filterAccessControl()
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#16 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(257): PostController->runActionWithFilters()
+#18 /var/www/yii/framework/web/CWebApplication.php(277): PostController->run()
+#19 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController()
+#20 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#21 /var/www/yiiblognew/index.php(11): CWebApplication->run()
+REQUEST_URI=/yiiblognew/
+2011/10/03 14:26:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "1"。' in /var/www/yii/framework/web/CWebApplication.php:281
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('1')
+#1 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#2 /var/www/yiiblognew/index.php(11): CApplication->run()
+#3 {main} REQUEST_URI=/yiiblognew/1

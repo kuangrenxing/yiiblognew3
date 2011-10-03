@@ -1,5 +1,6 @@
 <?php $this->renderPartial('_postbig',array(
     'model'=>$model,
+	'readFlag' => $readFlag,
 )); ?>
 
 <div id="comments">

@@ -54,8 +54,9 @@ class Post extends CActiveRecord
 	public function rules()
 	{
 		return array(
-		array('title, tags, content', 'required'),
+		array('title, tags, content,title2,content2', 'required'),
 		array('title','length','max'=>128),
+		array('title2','length','max'=>128),
 		array('titleLink','length','max'=>128),
 		array('titleLink','url'),
 		array('status','in','range'=>array(0,1,2,3)),
@@ -68,7 +69,7 @@ class Post extends CActiveRecord
 	 */
 	public function safeAttributes()
 	{
-		return array('title','titleLink','content','status','tags','categoryId');
+		return array('title','titleLink','content','status','tags','categoryId','title2','content2');
 	}
 
 	/**
@@ -98,8 +99,10 @@ class Post extends CActiveRecord
 	{
 		return array(
             'title'=>Yii::t('lan','Title'),
+			'title2'=>Yii::t('lan','Title2'),
             'titleLink'=>Yii::t('lan','Title Link'),
             'content'=>Yii::t('lan','Content'),
+			'content2'=>Yii::t('lan','Content2'),
             'tags'=>Yii::t('lan','Tags'),
             'status'=>Yii::t('lan','Status'),
             'createTime'=>Yii::t('lan','Create Time'),
