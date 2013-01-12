@@ -47,7 +47,8 @@
 </div>
 <div class="row">
     <?php echo CHtml::activeLabel($model,'categoryId'); ?>
-    <?php echo CHtml::activeDropDownList($model,'categoryId',CHtml::listData(Category::model()->findAll(array('select'=>'id, name')),'id','name'),array('prompt'=>'')); ?>
+    <?php echo CHtml::activeDropDownList($model,'categoryId',
+    		CHtml::listData(Category::model()->findAll(array('select'=>'id, name')),'id','name'),array('prompt'=>'')); ?>
 </div>
 
 

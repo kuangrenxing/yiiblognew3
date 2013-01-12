@@ -3,8 +3,10 @@
 <?php echo CHtml::beginForm(); ?>
 
 <?php
+$imagetype=array('jpg','JPG','png','PNG','jpeg','JPEG');
 $type=explode('/',$model->type);
-if($type[0]=='image')
+//if($type[0]=='jpg')
+if(in_array($type[0],$imagetype))
 {
     $whtext=File::getHOW(Yii::app()->params['filePath'].$file);
     $url=Yii::app()->baseUrl.'/uploads/file/'.$file;
@@ -13,7 +15,10 @@ if($type[0]=='image')
 
 <?php echo CHtml::errorSummary($model); ?>
 
-<?php echo ($type[0]=='image') ? (($whtext)?CHtml::link(CHtml::image($url, $model->alt, array($whtext=>Yii::app()->params['imageThumbnailBoundingbox'])), $url, array('class'=>'highslide')):CHtml::image($url, $model->alt)) : CHtml::image(Yii::app()->baseUrl.'/images/file.png'); ?>
+<?php echo ($type[0]=='jpg') ? (($whtext)
+    ?CHtml::link(CHtml::image($url, $model->alt, array($whtext=>Yii::app()->params['imageThumbnailBoundingbox'])),
+        $url, array('class'=>'highslide'))
+        :CHtml::image($url, $model->alt)) : CHtml::image(Yii::app()->theme->baseUrl.'/images/file.png'); ?>
 <div class="row">
     <?php echo CHtml::activeLabel($model,'name'); ?>
     <?php echo CHtml::activeTextField($model,'name',array('size'=>60,'maxlength'=>64)); ?>

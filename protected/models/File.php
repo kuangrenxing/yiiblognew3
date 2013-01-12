@@ -84,7 +84,7 @@ class File extends CActiveRecord
     public function getHOW($image)
     {
     
-        $size=@getimagesize($image);
+        $size=getimagesize($image);
         $bb=Yii::app()->params['imageThumbnailBoundingbox'];
         if($size[0]>$bb && $size[1]<=$bb)
           $whtext='width';

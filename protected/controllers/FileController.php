@@ -49,6 +49,7 @@ class FileController extends CController
     public function actionCreate()
     {
         $this->pageTitle=Yii::t('lan','New File');
+        $model=new File;
         $this->render('create',array('model'=>$model));
     }
     
@@ -128,6 +129,7 @@ class FileController extends CController
             'pages'=>$pages,
             'sort'=>$sort,
         ));
+       
     }
     
     /**

@@ -69,7 +69,8 @@ class Post extends CActiveRecord
 	 */
 	public function safeAttributes()
 	{
-		return array('title','titleLink','content','status','tags','categoryId','title2','content2');
+		return array('title','titleLink',
+				'content','status','tags','categoryId','title2','content2');
 	}
 
 	/**
@@ -136,6 +137,7 @@ class Post extends CActiveRecord
 		return $options[$this->status];
 	}
 
+
 	/**
 	 * Prepares attributes before performing validation.
 	 */
@@ -175,7 +177,8 @@ class Post extends CActiveRecord
 			{
 				if(($tag=Tag::model()->findByAttributes(array('name'=>$name)))===null)
 				{
-					$tag=new Tag(array('name'=>$name));
+					$tag=new Tag();
+                    $tag->name=$name;
 					$tag->save();
 				}
 				$this->dbConnection->createCommand("INSERT INTO PostTag (postId, tagId) VALUES ({$this->id},{$tag->id})")->execute();

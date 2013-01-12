@@ -47,11 +47,11 @@ class Comment extends CActiveRecord
     public function rules()
     {
         return array(
-            array('authorName','length','max'=>50),
+            //array('authorName','length','max'=>50),
             array('email','length','max'=>64),
-            array('authorName,email,content', 'required'),
+           // array('authorName,email,content', 'required'),
             array('email','email'),
-            array('authorName','match','pattern'=>'/^[\w\s._-]{3,50}$/','message'=>Yii::t('lan','Wrong or small username.')),
+            //array('authorName','match','pattern'=>'/^[\w\s._-]{3,50}$/','message'=>Yii::t('lan','Wrong or small username.')),
             array('verifyCode', 'captcha', 'on'=>'insert', 
                 'allowEmpty'=>!Yii::app()->user->isGuest || !extension_loaded('gd')),
         );

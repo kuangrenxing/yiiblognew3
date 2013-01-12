@@ -133,6 +133,7 @@ class UserController extends CController
         $model=new User;
         if(isset($_POST['User']))
         {
+        	
             $model->attributes=$_POST['User'];
             $model->status=User::STATUS_VISITOR;
             $model->banned=User::BANNED_NO;
@@ -182,7 +183,7 @@ class UserController extends CController
             $this->redirect(Yii::app()->homeUrl);
         }
         
-        $model=new User;
+        $model=new User('lostpass');
         if(isset($_POST['User']))
         {
             $model->attributes=$_POST['User'];
@@ -321,9 +322,14 @@ class UserController extends CController
         if($this->_model===null)
         {
             if($id!==null || isset($_GET['id']))
+            {
                 $this->_model=User::model()->findbyPk($id!==null ? $id : $_GET['id']);
+               
+            }
             if($this->_model===null)
+            {
                 throw new CHttpException(404,'The requested page does not exist.');
+            }
         }
         return $this->_model;
     }

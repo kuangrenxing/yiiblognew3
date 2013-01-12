@@ -32,7 +32,8 @@
         <?php if(isset($posts)) echo '<div>'.Yii::t('lan','Posts').': '.implode(', ',$posts).'</div>'; ?>
         
         <?php foreach($model->bookmarks as $bookmark): ?>
-            <?php if($bookmark->post) $bookmarks[] = CHtml::link(CHtml::encode($bookmark->post->title), array('post/show','slug'=>$bookmark->post->slug)); ?>
+            <?php //if($bookmark->post) 
+            	//$bookmarks[] = CHtml::link(CHtml::encode($bookmark->post->title), array('post/show','slug'=>$bookmark->post->slug)); ?>
         <?php endforeach; ?>
         <?php if(isset($bookmarks)) echo '<div>'.Yii::t('lan','Bookmarks').' : '.implode(', ',$bookmarks).'</div>'; ?>
         

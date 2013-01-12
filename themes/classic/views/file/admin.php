@@ -18,4 +18,6 @@
     <?php endforeach; ?>
 </table>
 <br/>
-<?php $this->widget('CLinkPager',array('pages'=>$pages)); ?>
+<?php $this->widget('CLinkPager',array('pages'=>$pages)); 
+
+?>

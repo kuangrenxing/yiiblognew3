@@ -8,13 +8,16 @@
     <h3><?php echo Yii::t('lan','Preview'); ?></h3>
     <div class="comment">
         <div class="avatar">
-            <img src="<?php echo Yii::app()->baseUrl.'/uploads/avatar/'.(isset(User::model()->findByPK($model->authorId)->avatar)?User::model()->findByPK($model->authorId)->avatar:Yii::app()->params['noAvatar']); ?>" alt="<?php echo (isset(User::model()->findByPK($model->authorId)->username)?User::model()->findByPK($model->authorId)->username:$model->authorName); ?>" title="<?php echo (isset(User::model()->findByPK($model->authorId)->username)?User::model()->findByPK($model->authorId)->username:$model->authorName); ?>" />
+            <img src="<?php echo Yii::app()->baseUrl.'/uploads/avatar/'.(isset(User::model()->findByPK($model->authorId)->avatar)?
+            		User::model()->findByPK($model->authorId)->avatar:Yii::app()->params['noAvatar']); ?>" 
+            		alt="<?php echo (isset(User::model()->findByPK($model->authorId)->username)?User::model()->findByPK($model->authorId)->username:$model->authorName); ?>" title="<?php echo (isset(User::model()->findByPK($model->authorId)->username)?User::model()->findByPK($model->authorId)->username:$model->authorName); ?>" />
         </div>
         <div class="info">
             <div class="author"><?php echo (isset(User::model()->findByPK($model->authorId)->username)?User::model()->findByPK($model->authorId)->username:$model->authorName); ?></div>
             <div class="time">
                 <?php echo Yii::t('lan',date('F',$model->createTime)).date(' j, Y H:i ',$model->createTime); ?> |
-                <?php echo (isset(User::model()->findByPK($model->authorId)->email)?User::model()->findByPK($model->authorId)->email:$model->email); ?>
+                <?php echo (isset(User::model()->findByPK($model->authorId)->email)?
+                		User::model()->findByPK($model->authorId)->email:$model->email); ?>
             </div>
             <div class="content"><?php echo $model->contentDisplay; ?></div>
         </div>

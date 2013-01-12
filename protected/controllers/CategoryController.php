@@ -46,7 +46,7 @@ class CategoryController extends CController
             ),
         );
     }
-
+    
     /**
      * Shows a particular model.
      */
@@ -187,7 +187,7 @@ class CategoryController extends CController
     {
         if($this->_model===null)
         {
-            if($id!==null || isset($_GET['slug']))
+            if($slug!==null || isset($_GET['slug']))
                 $this->_model=Category::model()->find('slug=:slug',array('slug'=>$slug!==null ? $slug : $_GET['slug']));
             if($this->_model===null)
                 throw new CHttpException(404,'The requested page does not exist.');

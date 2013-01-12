@@ -74,6 +74,7 @@ class PostController extends BaseController
 		{
 			$readFlag = $_GET['readFlag'];
 		}
+		//echo $readFlag;
 		$model=$this->loadPostSlug();
 		$newComment=$this->newComment($model);
 
@@ -91,10 +92,11 @@ class PostController extends BaseController
 	 * If creation is successful, the browser will be redirected to the 'show' page.
 	 */
 	public function actionCreate()
-	{
+	{ 
 		$model=new Post;
 		if(isset($_POST['Post']))
 		{
+			//print_r($_POST);exit;
 			$model->attributes=$_POST['Post'];
 			if(isset($_POST['previewPost']))
 			$model->validate();
@@ -108,7 +110,9 @@ class PostController extends BaseController
 				$this->redirect(array('show','slug'=>$model->slug));
 			}
 		}
+		
 		$this->pageTitle=Yii::t('lan','New Post');
+		//print_r($this);
 		$this->render('create',array('model'=>$model));
 	}
 
@@ -153,6 +157,8 @@ class PostController extends BaseController
 	 */
 	public function actionList($readFlag = 0)
 	{
+		
+
 		$criteria=new CDbCriteria;
 		$criteria->condition='status='.Post::STATUS_PUBLISHED;
 		$criteria->order='createTime DESC';
@@ -167,6 +173,7 @@ class PostController extends BaseController
 			$this->pageTitle='';
 			$modelsCount=Post::model()->count($criteria);
 		}
+		//如何分页
 		$pages=new CPagination($modelsCount);
 		$pages->pageSize=Yii::app()->params['postsPerPage'];
 		$pages->applyLimit($criteria);
@@ -386,8 +393,8 @@ class PostController extends BaseController
 		else
 		$search->keyword=$_GET['searchString'];
 		 
-		if($search->validate())
-		{
+		/* if($search->validate())
+		{ */  
 
 			$criteria=new CDbCriteria;
 			$criteria->condition='status='.Post::STATUS_PUBLISHED;
@@ -402,7 +409,7 @@ class PostController extends BaseController
 			$pages->applyLimit($criteria);
 
 			$models=Post::model()->findAll($criteria);
-		}
+		//}
 
 		$this->pageTitle=Yii::t('lan','Search Results').' "'.CHtml::encode($_GET['searchString']).'"';
 		$this->render('search',array(

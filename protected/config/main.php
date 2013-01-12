@@ -30,9 +30,9 @@ return array(
                 array(
                     'class'=>'CFileLogRoute',
                     'levels'=>'error, warning',
-                ),
-            ),
-        ),
+                	),
+            	),
+       		 ),
         'image'=>array(
           'class'=>'application.extensions.image.CImageComponent',
             // GD or ImageMagick
@@ -51,9 +51,9 @@ return array(
             'loginUrl'=>null,
         ),
         'db'=>array(
-            'connectionString'=>'mysql:host=localhost;dbname=blog',
+            'connectionString'=>'mysql:host=localhost;dbname=yiiblognew3',
             'username'=>'root',
-            'password'=>'casacasa',
+            'password'=>'public',
             'charset'=>'UTF8',
         ),
         'urlManager'=>array(
@@ -65,5 +65,8 @@ return array(
 
     // application-level parameters that can be accessed
     // using Yii::app()->params['paramName']
-    'params'=>require(dirname(__FILE__).'/params.php'),
+   'params'=>//array(
+		// this is used in contact page
+       require(dirname(__FILE__).'/params.php'),
+	//),
 );
